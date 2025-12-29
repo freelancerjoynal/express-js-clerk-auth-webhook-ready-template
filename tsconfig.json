@@ -1,0 +1,54 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    /* File Layout */
+    "rootDir": "./src", // Source files
+    "outDir": "./dist", // Compiled output
+    /* Environment Settings */
+    "module": "ESNext", // Use native ES modules
+    "moduleResolution": "node", // Node-style resolution
+    "target": "ES2023", // Latest stable ECMAScript features
+    "lib": [
+      "ES2023"
+    ], // Include modern JS APIs
+    "types": [
+      "node"
+    ], // Node.js type definitions
+    /* Interop & Compatibility */
+    "esModuleInterop": true, // Allow default imports from CommonJS
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true, // Import JSON files as modules
+    "verbatimModuleSyntax": true, // Keep import/export syntax as written
+    /* Output Options */
+    "sourceMap": true, // Generate source maps
+    "declaration": true, // Emit .d.ts files
+    "declarationMap": true, // Source maps for .d.ts
+    "skipLibCheck": true, // Skip type checks in node_modules
+    "ignoreDeprecations": "6.0", // Ignore TS 6.0 deprecation warnings
+    /* Strict Type Checking */
+    "strict": true, // Enable all strict checks
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    /* Style & Safety Options */
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    /* React Support (if needed) */
+    "jsx": "react-jsx",
+    /* Module Detection */
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noUncheckedSideEffectImports": true
+  },
+  "include": [
+    "src",
+    "data.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
