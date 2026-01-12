@@ -12,11 +12,7 @@ userRouter.get('/', requireAuth(), async (req, res) => {
     const { userId } = getAuth(req)
 
     // Use Clerk's JavaScript Backend SDK to get the user's User object
-    // const user = await clerkClient.users.getUser(userId)
-    const user = {
-        user: "joynal",
-        email: "joynal@prisma.io",	
-    }
+    const user = await clerkClient.users.getUser(userId)
 
     return res.json({ user })
 
