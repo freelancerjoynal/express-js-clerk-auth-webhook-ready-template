@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
 })
 
 
-import userCreated from './api/webHooks/userHook.js'
-app.use('/api/webhooks', userCreated)
+import userHook from './api/webHooks/userHook.js'
+app.use('/api/webhooks', userHook)
 
 
 const port = process.env.PORT || 8000
