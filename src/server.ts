@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
 })
 
 
-import userRouter from './api/users/userRoutes.ts'
-app.use('/api/user', userRouter)
+import userCreated from './api/webHooks/userHook.js'
+app.use('/api/webhooks', userCreated)
 
 
 

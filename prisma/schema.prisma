@@ -15,26 +15,9 @@ datasource db {
 
 model User {
   id       Int       @id @default(autoincrement())
-  email    String    @unique
-  name     String?
-  products Product[]
-}
+  email_addresses    String    @unique
+  first_name     String?
+  last_name      String?
 
-model Product {
-  id        Int      @id @default(autoincrement())
-  title     String
-  content   String?
-  price     Int
-  image     String
-  stock     Int
-  published Boolean  @default(false)
-
-  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  authorId  Int
-
-  categoryId Int
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
