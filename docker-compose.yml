@@ -1,0 +1,32 @@
+services:
+  db:
+    # Using the latest stable major version of PostgreSQL
+    image: postgres:18
+    restart: unless-stopped
+    
+    # Loads environment variables from the .env file
+    env_file: .env
+    
+    # Maps internal container variables to .env variables with fallback defaults
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-clerk}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-clerk_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-clerk_db}
+      
+    # Exposes the Postgres port to your local machine
+    ports:
+      - "5432:5432"
+      
+    # Persists database data on your hard drive
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      
+    # Healthcheck to ensure database is ready before other services connect
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U clerk"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db_data:
